@@ -1,0 +1,80 @@
+h1 {
+    font-size: 18px;
+    border-bottom: 1px solid;
+    padding: 8px 16px;
+    margin-bottom: 16px;
+}
+dl {
+    margin: 0;
+}
+dd {
+    margin: 0;
+    padding: 8px;
+    display: none;
+}
+dd::before {
+    content: 'A. ';
+}
+dt {
+    padding: 8px;
+    cursor: pointer;
+    user-select: none;
+    position: relative;
+}
+dt::before {
+    content: 'Q. ';
+    
+}
+dt::after {
+    content: '+';
+    position: absolute;
+    top: 8px;
+    transition: transform 0.3s;
+    right: 16px;
+
+}
+dl > div {
+    margin-bottom: 8px;
+}
+dl > div.appear dd {
+    display: block;
+    animation: 0.3s fadeIn;
+}
+dl > div.appear dt::after {
+    transform: rotate(45deg);
+}
+@keyframes fadeIn {
+    0% {
+        opacity: 0;
+        transform: translateY(-10px);
+    }
+    100% {
+        opacity: 1;
+        transform: none;
+
+    }
+}
+
+/* ざっくりですが、自動再生やループするような細かい設定が必要なアニメーションはanimation、それ以外はtransitionと覚えておけば良いでしょう。 */
+
+/* .animation {
+	animation: "animetion01" 5s linear 1s infinite;
+  /* ①name ②duration ③delay ④timing-function ⑤iteration-count */
+/* }
+
+/****** ↑ 同じ意味意味 ↓ ******/
+
+/* .animation {
+	animation-name: animetion01;
+	animation-duration: 5s;
+	animation-timing-function: linear;
+	animation-delay: 1s;
+	animation-iteration-count: infinite; */ 
+
+    /* animation-duration（アニメーション時間）
+    animation-timing-function（アニメーション速度）
+    animation-delay（アニメーション起動までの遅延時間）
+    animation-iteration-count（アニメーション回数）
+
+    animation-direction（ループ再生時のアニメーション方向）
+アニメーションの再生方向を指定します。この値は上のanimation-iteration-countで繰り返し回数を”infinite”とループ設定した場合にのみ効果があります。 */
